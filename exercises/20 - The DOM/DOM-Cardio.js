@@ -36,13 +36,13 @@ const list = `<ul>
 let width = 250;
 const puppy_name = 'Cute Puppy';
 src = `https://picsum.photos/${width}`;
-const myImage =`<img src="" alt="${puppy_name}" class="cute">`;
+const myImage =`<img src="${src}" alt="${puppy_name}" class="cute">`;
 
 myDiv.innerHTML = list + myImage;
 
 const topDiv = `<div>
-<p></p>
-<p></p>
+<p>Paragraph 1</p>
+<p>Paragraph 2</p>
 </div>`
 const wrapper_list = document.querySelector('.wrapper > ul');
 wrapper_list.insertAdjacentHTML('beforebegin', topDiv);
@@ -70,17 +70,22 @@ for (let i = 0; i < 4; i++) {
 
 myDiv.insertAdjacentElement('beforebegin', playerDiv)
 const players = document.querySelectorAll(".playerCard")
+let button = document.createElement('button');
+    button.textContent = "Delete";
+    button.classList = "delete"
 players.forEach((player) => {
-    player.innerHTML = `<button class="delete">Delete</button>`
-})
+    
+    player.innerHTML += `<button class="delete">Delete</button>`
+ })
 
 function deletePlayer() {
     const deletBtn = document.querySelectorAll('.delete')
     deletBtn.forEach((button) => {
-        button.addEventListener('click', function(){
-
+        
+        button.addEventListener('click', function(e) {
+            button.parentElement.remove()
         })
     })
 }
 
-
+deletePlayer()
