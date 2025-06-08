@@ -7,8 +7,9 @@ butts.addEventListener('click', function() {
 //Listen on multiple items
 const buyButtons = document.querySelectorAll('button.buy');
 
-function handleBuyButtonClick() {
+function handleBuyButtonClick(event) {
     console.log("You are buying it");
+    console.log(typeof event.target.dataset.price);
 }
 
 buyButtons.forEach( function(buyButton){
